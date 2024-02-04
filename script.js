@@ -6,6 +6,28 @@
 var today = dayjs();
 $('#currentDay').text(today.format('MMM D, YYYY'));
 
+// Assign saveBtn click listener for user input and time stamp.
+$(".saveBtn").on("click", function () {
+console.log(this);
+// Using jQuery $(this) to call the function and pass "this" to it
+var eventText = $(this).siblings(".description").val();
+var eventTime = $(this).parent().attr("id");
+// Setting the value(s) in a local storage using setItem.
+localStorage.setItem(eventTime, eventText);
+})
+
+// Loading saved data from LocalStorage for every hour created.
+$("#hour-9 .description").val(localStorage.getItem("hour-9"));
+$("#hour-10 .description").val(localStorage.getItem("hour-10"));
+$("#hour-11 .description").val(localStorage.getItem("hour-11"));
+$("#hour-12 .description").val(localStorage.getItem("hour-12"));
+$("#hour-13 .description").val(localStorage.getItem("hour-13"));
+$("#hour-14 .description").val(localStorage.getItem("hour-14"));
+$("#hour-15 .description").val(localStorage.getItem("hour-15"));
+$("#hour-16 .description").val(localStorage.getItem("hour-16"));
+$("#hour-17 .description").val(localStorage.getItem("hour-17"));
+
+
 // $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
