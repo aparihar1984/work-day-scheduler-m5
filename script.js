@@ -3,10 +3,15 @@
 // in the html.
 
 // Using day.js to display the current date on the webpage.
-var today = dayjs();
-$('#currentDay').text(today.format('MMM D, YYYY'));
+// var currentDate = dayjs();
+// $('#currentDay').text(currentDate.format('MMM D, YYYY'));
 
-// Assign saveBtn click listener for user input and time stamp.
+// Using moment.js to display the current date on the webpage.
+$(document).ready(function () {
+  // Linking "#currentDay" between the HTML and CSS pages to display the day and time
+  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+
+// Assigning the saveBtn (save buttons) click listener for the user input(s) and time stamp.
 $(".saveBtn").on("click", function () {
 console.log(this);
 // Using jQuery $(this) to call the function and pass "this" to it
@@ -28,7 +33,38 @@ $("#hour-16 .description").val(localStorage.getItem("hour-16"));
 $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
 
-// $(function () {
+// $(function() {
+
+function hourTracker() {
+  // Obtaining the number of hours that have passed during the day.
+  var currentHour = moment().hour();
+
+  // Looping over time blocks
+  $(".time-block").each(function () {
+      var timeBlock = parseInt($(this).attr("id").split("hour")[1]);
+      console.log( timeBlock, currentHour)
+
+      // Using If-Else statements to check whether the current time (currentHour) has passed the various "time blocks" (timeBlock)
+      if (timeBlock < currentHour) {
+          $(this).addClass("past");
+          $(this).removeClass("future");
+          $(this).removeClass("present");
+      }
+      else if (timeBlock === currentHour) {
+          $(this).removeClass("past");
+          $(this).addClass("present");
+          $(this).removeClass("future");
+      }
+      else {
+          $(this).removeClass("present");
+          $(this).removeClass("past");
+          $(this).addClass("future");
+      }
+  })
+}
+hourTracker();
+})
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
