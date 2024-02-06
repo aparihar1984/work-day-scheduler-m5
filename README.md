@@ -9,7 +9,7 @@ For this assignment, I created a calendar that allows the user to save events fo
 ## Criteria
 To meet the Accepted Criteria of this assignment, I created a Work Day Calendar using a JavaScript file that featured the following:
 
-When the planner is opened, the current day and time is displayed at the top of the calendar.
+When the planner is opened, the current day and time are displayed at the top of the calendar.
 
 When the user scrolls down the Work Day Calendar, they are presented with time blocks for the standard business hours of 9am to 5pm.
 
@@ -40,9 +40,10 @@ The experimentation was necessary since it should be pointed out that while the 
 ## Screenshots
 Here are the screenshots from the Work Day Calendar taken AFTER 7pm:
 
+![Alt text](https://github.com/aparihar1984/work-day-scheduler-m5/blob/main/Screenshots/Work%20Day%20Screenshot%20Part%201.png)
 
-
-
+![Alt text](https://github.com/aparihar1984/work-day-scheduler-m5/blob/main/Screenshots/Work%20Day%20Screenshot%20Part%202.png)
 
 ## Deployment/Website Link:
 
+https://aparihar1984.github.io/work-day-scheduler-m5/
