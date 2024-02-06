@@ -3,13 +3,13 @@
 // in the html.
 
 // Using day.js to display the current date on the webpage.
-// var currentDate = dayjs();
-// $('#currentDay').text(currentDate.format('MMM D, YYYY'));
+var currentDate = dayjs();
+$('#currentDay').text(currentDate.format('MMM D, YYYY, h:mm:ss a'));
 
 // Using moment.js to display the current date on the webpage.
-$(document).ready(function () {
+// $(document).ready(function () {
   // Linking "#currentDay" between the HTML and CSS pages to display the day and time
-  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  // $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
 // Assigning the saveBtn (save buttons) click listener for the user input(s) and time stamp.
 $(".saveBtn").on("click", function () {
@@ -22,21 +22,20 @@ localStorage.setItem(eventTime, eventText);
 })
 
 // Loading saved data from LocalStorage for every hour created.
-$("#hour-9 .description").val(localStorage.getItem("hour-9"));
-$("#hour-10 .description").val(localStorage.getItem("hour-10"));
-$("#hour-11 .description").val(localStorage.getItem("hour-11"));
-$("#hour-12 .description").val(localStorage.getItem("hour-12"));
-$("#hour-13 .description").val(localStorage.getItem("hour-13"));
-$("#hour-14 .description").val(localStorage.getItem("hour-14"));
-$("#hour-15 .description").val(localStorage.getItem("hour-15"));
-$("#hour-16 .description").val(localStorage.getItem("hour-16"));
-$("#hour-17 .description").val(localStorage.getItem("hour-17"));
-
+$("#hour9 .description").val(localStorage.getItem("hour-9"));
+$("#hour10 .description").val(localStorage.getItem("hour-10"));
+$("#hour11 .description").val(localStorage.getItem("hour-11"));
+$("#hour12 .description").val(localStorage.getItem("hour-12"));
+$("#hour13 .description").val(localStorage.getItem("hour-13"));
+$("#hour14 .description").val(localStorage.getItem("hour-14"));
+$("#hour15 .description").val(localStorage.getItem("hour-15"));
+$("#hour16 .description").val(localStorage.getItem("hour-16"));
+$("#hour17 .description").val(localStorage.getItem("hour-17"));
 
 // $(function() {
 
 function hourTracker() {
-  // Obtaining the number of hours that have passed during the day.
+  // Obtaining the number of hours that have passed during the day using moment.js.
   var currentHour = moment().hour();
 
   // Looping over time blocks
@@ -63,7 +62,7 @@ function hourTracker() {
   })
 }
 hourTracker();
-})
+// })
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
